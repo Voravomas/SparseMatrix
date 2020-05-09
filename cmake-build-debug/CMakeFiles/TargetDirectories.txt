@@ -1,0 +1,3 @@
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/cmake-build-debug/CMakeFiles/SparseMatrix.dir
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/cmake-build-debug/CMakeFiles/edit_cache.dir

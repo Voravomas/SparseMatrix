@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/header/functions.h
+sparseMatrix.h
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/header/sparseMatrix.h
+
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/header/matricesExamples.h
+sparseMatrix.h
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/header/sparseMatrix.h
+
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/header/sparseMatrix.h
+iostream
+-
+vector
+-
+stdexcept
+-
+
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/header/testFunctions.h
+cassert
+-
+functions.h
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/header/functions.h
+matricesExamples.h
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/header/matricesExamples.h
+
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/test/testFunctions.cpp
+./../header/testFunctions.h
+/home/vlad/Desktop/2_year/ACS/project_version_2/SparseMatrix/header/testFunctions.h
+gtest/gtest.h
+-
+

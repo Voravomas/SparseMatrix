@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/SparseMatrix.dir/src/functions.cpp.o CMakeFiles/SparseMatrix.dir/src/main.cpp.o CMakeFiles/SparseMatrix.dir/src/sparseMatrix.cpp.o CMakeFiles/SparseMatrix.dir/test/testFunctions.cpp.o CMakeFiles/SparseMatrix.dir/test/testSparseMatrix.cpp.o  -o SparseMatrix /usr/lib/x86_64-linux-gnu/libgtest.a -lpthread 
