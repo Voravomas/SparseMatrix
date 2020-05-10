@@ -89,9 +89,9 @@ void SparseMatrix::changeElement(int getR, int getC, double newVal) {
         int truePut = rowVector[getR];
         if (!wasEmptyRow)
         {
-            for (auto j = rowVector[getR]; j < rowVector[getR] + 1; ++j)
+            for (auto j = rowVector[getR]; j < rowVector[getR + 1] - 1; ++j)
             {
-                if (getC > columnVector[truePut])
+                if (columnVector[truePut] <= getC)
                 {
                     truePut++;
                 }
