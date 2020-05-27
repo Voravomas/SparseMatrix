@@ -1,33 +1,51 @@
+#include <array>
 #include "../header/functions.h"
+SparseMatrix matrixMatrix(const SparseMatrix& A, const SparseMatrix& D) {
+	//error if sizes are different
+	if (A.colNum != D.rowNum) {
+		throw runtime_error("diff sizes");
+	}
 
-vector<double> matrixVector(const SparseMatrix& matrix, const vector<double>& inputVector) {
-    //// Sparse matrix multiplied by any vector
-    //// Complexity n, where n is number of non-zero elements in matrix.
-    if (matrix.colNum != inputVector.size())
-    {
-        throw runtime_error("vector length != matrix row length");
-    }
+	//making empty sparse matrix
+	vector<vector<double>> vec(A.rowNum, vector<double>(D.colNum, 0));
+	SparseMatrix C = SparseMatrix(vec);
 
-    // checking if inputVector is zero vector
-    for(auto i = 0; i < inputVector.size(); ++i)
-    {
-        if (inputVector[i] != 0)
-        {
-            break;
-        }
-        if (i == inputVector.size() - 1)
-        {
-            return inputVector;
-        }
-    }
+	//making copy of second matrix and transpose it
+	SparseMatrix B = D;
+	B.transpose();
 
-    vector<double> resVector(matrix.rowNum, 0);
-    for(auto i = 0; i < matrix.rowNum; ++i)
-    {
-        for(auto j = matrix.rowVector[i]; j < matrix.rowVector[i + 1]; ++j)
-        {
-            resVector[i] += matrix.valueVector[j] * inputVector[matrix.columnVector[j]];
-        }
-    }
-    return resVector;
+	// complexity n^2
+	for (int i = 0; i < A.rowNum; ++i) {
+		for (int j = A.rowVector[i]; j < A.rowVector[i + 1]; ++j) {
+			for (int m = 0; m < B.rowNum; ++m) {
+				for (int n = B.rowVector[m]; n < B.rowVector[m + 1]; ++n) {
+					if (A.columnVector[j] == B.columnVector[n]) {
+						double res = A.valueVector[j] * B.valueVector[n];
+						res += C.returnElement(i, m);
+						C.changeElement(i, m, res);
+					}
+				}
+			}
+		}
+	}
+	return C;
 }
+
+std::vector<double> solveEq(const SparseMatrix& A, const std::vector<double>& b) {
+	double res = 0;
+	std::vector<double> result;
+	for (int i = 0; i < A.rowVector.size(); i++) {
+		for (int j = 0; j < A.columnVector.size(); j++) {
+			if (A.rowVector[j] == j) {
+				res += A.rowVector[j];
+			}
+
+			else {
+				res += A.rowVector[i];
+			}
+		}
+		result.emplace_back(res);
+	}
+	return result;
+}
+

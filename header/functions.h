@@ -3,6 +3,8 @@
 
 #include "sparseMatrix.h"
 
-vector<double> matrixVector(const SparseMatrix& matrix, const vector<double>& inputVector);
 
+SparseMatrix matrixMatrix(const SparseMatrix& A, const SparseMatrix& D);
+
+std::vector<double> solveEq(const SparseMatrix& A, const std::vector<double>& b);
 #endif //FUNCTIONS_H

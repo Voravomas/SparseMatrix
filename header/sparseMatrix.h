@@ -11,6 +11,7 @@ using std::runtime_error;
 using std::cout;
 using std::flush;
 using std::endl;
+enum MatrixFileFormat{ CSC=0, DOK=1, CSR=2 };
 
 class SparseMatrix {
 public:
@@ -21,7 +22,9 @@ public:
     vector<int> columnVector;
     vector<int> rowVector = {0};
 public:
-    SparseMatrix(vector<vector<double>> matrix);
+    SparseMatrix(const vector<vector<double>>& matrix);
+	SparseMatrix(const std::string& filename, MatrixFileFormat format);
+	void transpose();
     double returnElement(int getR, int getC, int type=0);
     void changeElement(int newRow, int newCol, double newVal);
     void printSparse();
